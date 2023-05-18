@@ -8,4 +8,4 @@ const updSchema = Joi.object({
   .min(1)
   .message("missing fields");
 
-module.exports = { updSchema };
+module.exports = updSchema;
