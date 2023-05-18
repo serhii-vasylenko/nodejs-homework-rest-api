@@ -3,10 +3,12 @@ const getById = require("./getById");
 const add = require("./add");
 const remove = require("./remove");
 const update = require("./update");
+
+const {ctrlWrapper} = require("../helpers")
 module.exports = {
-  getAll,
-  getById,
-  add,
-  remove,
-  update,
+  getAll: ctrlWrapper(getAll),
+  getById: ctrlWrapper(getById),
+  add: ctrlWrapper(add),
+  remove: ctrlWrapper(remove),
+  update: ctrlWrapper(update),
 };
