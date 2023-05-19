@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 const updSchema = Joi.object({
   name: Joi.string(),
@@ -6,6 +6,6 @@ const updSchema = Joi.object({
   phone: Joi.string(),
 })
   .min(1)
-  .message("missing fields");
+  .message('missing fields');
 
 module.exports = updSchema;

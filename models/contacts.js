@@ -1,7 +1,7 @@
-const fs = require("fs").promises;
-const path = require("path");
+const fs = require('fs').promises;
+const path = require('path');
 
-const contactsPath = path.join(__dirname, "contacts.json");
+const contactsPath = path.join(__dirname, 'contacts.json');
 console.log(contactsPath);
 
 const listContacts = async () => {
@@ -9,13 +9,13 @@ const listContacts = async () => {
   return JSON.parse(contacts);
 };
 
-const getContactById = async (contactId) => {
+const getContactById = async contactId => {
   const contacts = await listContacts();
   const contact = [...contacts].find(({ id }) => id === contactId);
   return contact || null;
 };
 
-const removeContact = async (contactId) => {
+const removeContact = async contactId => {
   let contacts = await listContacts();
   const contact = [...contacts].find(({ id }) => id === contactId);
   if (!contact) {
@@ -26,7 +26,7 @@ const removeContact = async (contactId) => {
   return contact;
 };
 
-const addContact = async (body) => {
+const addContact = async body => {
   let contacts = await listContacts();
   contacts = [...contacts, body];
   await reWriteContacts(contacts);
@@ -35,17 +35,17 @@ const addContact = async (body) => {
 
 const updateContact = async (contactId, body) => {
   const contacts = await listContacts();
-  let contact = [...contacts].find(({ id }) => id === contactId);
-  if (!contact) {
+  const index = [...contacts].findIndex(({id}) => id === contactId)
+  if (index === -1) {
     return null;
   }
-  contact = { ...contact, ...body };
+  contacts[index] = { ...contacts[index], ...body };
 
   await reWriteContacts(contacts);
-  return contact;
+  return contacts[index];
 };
 
-const reWriteContacts = async (contacts) => {
+const reWriteContacts = async contacts => {
   try {
     fs.writeFile(contactsPath, JSON.stringify(contacts, null, 4));
   } catch (error) {

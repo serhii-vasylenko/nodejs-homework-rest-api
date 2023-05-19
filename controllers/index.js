@@ -1,10 +1,10 @@
-const getAll = require("./getAll");
-const getById = require("./getById");
-const add = require("./add");
-const remove = require("./remove");
-const update = require("./update");
+const getAll = require('./getAll');
+const getById = require('./getById');
+const add = require('./add');
+const remove = require('./remove');
+const update = require('./update');
 
-const { ctrlWrapper } = require("../helpers");
+const { ctrlWrapper } = require('../helpers');
 module.exports = {
   getAll: ctrlWrapper(getAll),
   getById: ctrlWrapper(getById),
