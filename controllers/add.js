@@ -1,9 +1,8 @@
-const { HttpError } = require("../helpers");
 const { addContact } = require("../models/contacts");
 
 const { nanoid } = require("nanoid");
 
-const add = async (req, res, next) => {
+const add = async (req, res) => {
   const contact = {
     id: nanoid(),
     ...req.body,
