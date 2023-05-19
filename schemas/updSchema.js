@@ -5,7 +5,6 @@ const updSchema = Joi.object({
   email: Joi.string(),
   phone: Joi.string(),
 })
-  .min(1)
-  .message('missing fields');
+  .min(1);
 
 module.exports = updSchema;
