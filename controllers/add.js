@@ -1,16 +1,8 @@
-const { addContact } = require("../models/contacts");
-
-const { nanoid } = require("nanoid");
+const Contact = require('../models/contacts');
 
 const add = async (req, res) => {
-  const contact = {
-    id: nanoid(),
-    ...req.body,
-  };
-  await addContact(contact);
-  res.status(201).json({
-    contact,
-  });
+  const contact = await Contact.create(req.body);
+  res.status(201).json(contact);
 };
 
 module.exports = add;
