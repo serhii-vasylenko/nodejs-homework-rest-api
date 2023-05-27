@@ -3,6 +3,7 @@ const getById = require('./getById');
 const add = require('./add');
 const remove = require('./remove');
 const update = require('./update');
+const updateStatusContact = require('./updateStatus');
 
 const { ctrlWrapper } = require('../helpers');
 module.exports = {
@@ -11,4 +12,5 @@ module.exports = {
   add: ctrlWrapper(add),
   remove: ctrlWrapper(remove),
   update: ctrlWrapper(update),
+  updateStatusContact: ctrlWrapper(updateStatusContact),
 };
