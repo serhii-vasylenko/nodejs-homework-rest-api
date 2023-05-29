@@ -1,9 +1,11 @@
-const getAll = require('./getAll');
-const getById = require('./getById');
-const add = require('./add');
-const remove = require('./remove');
-const update = require('./update');
-const updateStatusContact = require('./updateStatus');
+const getAll = require('./contacts/getAll');
+const getById = require('./contacts/getById');
+const add = require('./contacts/add');
+const remove = require('./contacts/remove');
+const update = require('./contacts/update');
+const updateStatusContact = require('./contacts/updateStatus');
+
+const register = require('./auth/register');
 
 const { ctrlWrapper } = require('../helpers');
 module.exports = {
@@ -13,4 +15,5 @@ module.exports = {
   remove: ctrlWrapper(remove),
   update: ctrlWrapper(update),
   updateStatusContact: ctrlWrapper(updateStatusContact),
+  register: ctrlWrapper(register),
 };
