@@ -1,11 +1,15 @@
-const addSchema = require('./contacts/addSchema');
-const updSchema = require('./contacts/updSchema');
-const favSchema = require('./contacts/favSchema');
-const contactSchema = require('./contacts/contactSchema');
-const userSchema = require('./auth/userSchema');
-const registerSchema = require('./auth/registerSchema');
-const loginSchema = require('./auth/loginSchema');
-const subscriptionSchema = require('./auth/subscriptionSchema');
+const {
+  addSchema,
+  favSchema,
+  updSchema,
+  contactSchema,
+} = require('./contacts');
+const {
+  userSchema,
+  registerSchema,
+  loginSchema,
+  subscriptionSchema,
+} = require('./auth');
 
 module.exports = {
   addSchema,
