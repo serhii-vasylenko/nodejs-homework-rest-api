@@ -8,7 +8,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
 
-  const { SECRET_KEY, DB_HOST } = process.env;
+  const { SECRET_KEY } = process.env;
 
   if (!user) {
     throw HttpError(401);
@@ -22,13 +22,13 @@ const login = async (req, res) => {
   const payload = { id: user._id };
 
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '8h' });
-  await User.findByIdAndUpdate(user._id, { token });
+  const result = await User.findByIdAndUpdate(user._id, { token });
 
   res.status(200).json({
     token: token,
     user: {
-      email,
-      subscription,
+      email: result.email,
+      subscription: result.subscription,
     },
   });
 };
