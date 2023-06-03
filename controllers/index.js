@@ -1,16 +1,30 @@
-const getAll = require('./getAll');
-const getById = require('./getById');
-const add = require('./add');
-const remove = require('./remove');
-const update = require('./update');
-const updateStatusContact = require('./updateStatus');
+const {
+  getAll,
+  getById,
+  add,
+  remove,
+  update,
+  updateStatusContact,
+} = require('./contacts');
 
-const { ctrlWrapper } = require('../helpers');
+const {
+  register,
+  login,
+  getCurrent,
+  logout,
+  updateSubcription,
+} = require('./auth');
+
 module.exports = {
-  getAll: ctrlWrapper(getAll),
-  getById: ctrlWrapper(getById),
-  add: ctrlWrapper(add),
-  remove: ctrlWrapper(remove),
-  update: ctrlWrapper(update),
-  updateStatusContact: ctrlWrapper(updateStatusContact),
+  getAll,
+  getById,
+  add,
+  remove,
+  update,
+  updateStatusContact,
+  register,
+  login,
+  getCurrent,
+  logout,
+  updateSubcription,
 };

@@ -1,11 +1,23 @@
-const addSchema = require('./addSchema');
-const updSchema = require('./updSchema');
-const favSchema = require('./favSchema');
-const contactSchema = require('./mongooseSchema');
+const {
+  addSchema,
+  favSchema,
+  updSchema,
+  contactSchema,
+} = require('./contacts');
+const {
+  userSchema,
+  registerSchema,
+  loginSchema,
+  subscriptionSchema,
+} = require('./auth');
 
 module.exports = {
   addSchema,
   favSchema,
   updSchema,
-  contactSchema,  
+  contactSchema,
+  userSchema,
+  registerSchema,
+  loginSchema,
+  subscriptionSchema,
 };

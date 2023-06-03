@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-const { MongooseError } = require('../helpers');
+const { MongooseError } = require('../../helpers');
 
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const phoneRegExp = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -23,6 +23,10 @@ const contactSchema = new Schema(
     favorite: {
       type: Boolean,
       default: false,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
     },
   },
   { versionKey: false, timestamps: true }
