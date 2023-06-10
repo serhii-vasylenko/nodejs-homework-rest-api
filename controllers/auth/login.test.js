@@ -19,7 +19,7 @@ afterAll(async () => {
 });
 
 describe('POST /api/users/login', () => {
-  it('should return code 200', async () => {
+  it('should returns code 200', async () => {
     const res = await request(app).post('/api/users/login').send(creds);
 
     expect(res.statusCode).toBe(200);
