@@ -9,5 +9,5 @@ module.exports = {
   ctrlWrapper,
   MongooseError,
   resizeImage: ctrlWrapper(resizeImage),
-  sendEmail: ctrlWrapper(sendEmail),
+  sendEmail
 };
