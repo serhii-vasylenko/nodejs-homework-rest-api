@@ -3,7 +3,7 @@ const gravatar = require('gravatar');
 const { nanoid } = require('nanoid');
 require('dotenv').config();
 
-const { HttpError, sendEmail } = require('../../helpers');
+const { HttpError, sendEmail, createVerifyEmail } = require('../../helpers');
 const { User } = require('../../models');
 
 const { BASE_URL } = process.env;
@@ -28,11 +28,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const verifyEmail = {
-    to: email,
-    subject: 'Verify email',
-    html: `<a href="${BASE_URL}/users/verify/${verificationToken}" target="_blanc">Verify</a>`,
-  };
+  const verifyEmail = createVerifyEmail(verificationToken, email);
 
   sendEmail(verifyEmail);
 
