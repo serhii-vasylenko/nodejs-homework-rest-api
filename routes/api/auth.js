@@ -28,6 +28,10 @@ router.patch(
 
 router.get('/verify/:verificationToken', ctrl.verify);
 
-router.post('/verify', validateBody(schemas.emailSchema), ctrl.resendVerifyEmail)
+router.post(
+  '/verify',
+  validateBody(schemas.emailSchema),
+  ctrl.resendVerifyEmail
+);
 
 module.exports = router;
