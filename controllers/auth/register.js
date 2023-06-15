@@ -3,7 +3,8 @@ const gravatar = require('gravatar');
 const { nanoid } = require('nanoid');
 require('dotenv').config();
 
-const { HttpError, sendEmail, createVerifyEmail } = require('../../helpers');
+const { HttpError } = require('../../helpers');
+const {sendEmail, createVerifyEmail} = require('../../services/mail');
 const { User } = require('../../models');
 
 const { BASE_URL } = process.env;

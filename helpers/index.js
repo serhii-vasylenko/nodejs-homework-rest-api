@@ -2,14 +2,10 @@ const HttpError = require('./HttpError');
 const ctrlWrapper = require('./ctrlWrapper');
 const MongooseError = require('./MongooseError');
 const resizeImage = require('./resizeImage');
-const sendEmail = require('./sendEmailSendGrid');
-const createVerifyEmail = require('./createVirifyEmail');
 
 module.exports = {
   HttpError,
   ctrlWrapper,
   MongooseError,
   resizeImage: ctrlWrapper(resizeImage),
-  sendEmail: ctrlWrapper(sendEmail),
-  createVerifyEmail,
 };
